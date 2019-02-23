@@ -1,0 +1,8 @@
+﻿  main.cpp
+z:\igmprofile\desktop\slerptest\main\main\math.h(646): warning C4838: conversion from 'double' to 'f32' requires a narrowing conversion
+z:\igmprofile\desktop\slerptest\main\main\math.h(646): warning C4244: 'initializing': conversion from 'double' to 'f32', possible loss of data
+z:\igmprofile\desktop\slerptest\main\main\main.cpp(18): warning C4838: conversion from 'int' to 'f32' requires a narrowing conversion
+z:\igmprofile\desktop\slerptest\main\main\main.cpp(18): warning C4244: 'initializing': conversion from 'int' to 'f32', possible loss of data
+z:\igmprofile\desktop\slerptest\main\main\main.cpp(19): warning C4838: conversion from 'int' to 'f32' requires a narrowing conversion
+z:\igmprofile\desktop\slerptest\main\main\main.cpp(19): warning C4244: 'initializing': conversion from 'int' to 'f32', possible loss of data
+  main.vcxproj -> Z:\IGMProfile\Desktop\SlerpTest\main\Debug\main.exe
