@@ -1,0 +1,9 @@
+﻿  main.cpp
+z:\igmprofile\desktop\slerptest\main\main\math.h(646): warning C4838: conversion from 'double' to 'f32' requires a narrowing conversion
+z:\igmprofile\desktop\slerptest\main\main\math.h(646): warning C4244: 'initializing': conversion from 'double' to 'f32', possible loss of data
+  Generating code
+  2 of 97 functions ( 2.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  main.vcxproj -> Z:\IGMProfile\Desktop\SlerpTest\main\Release\main.exe

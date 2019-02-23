@@ -160,6 +160,15 @@ XQuaternion::operator*(
 	return XQuaternion(_mm_add_ps(_mm_add_ps(t0, t1), _mm_sub_ps(t2, t3)));
 }
 
+void Math::XQuaternion::normalize()
+{
+	/*__m128 pow = _mm_mul_ps(m_Vector, m_Vector);
+	__m128 sqrt = _mm_sqrt_ps(pow);*/
+	f32 sqrt = Magnitude();
+
+	m_Vector = _mm_div_ps(m_Vector, _mm_set1_ps(sqrt));
+}
+
 
 XVector3
 XMatrix4x4::operator*(

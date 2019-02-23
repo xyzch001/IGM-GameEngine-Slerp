@@ -112,6 +112,10 @@ namespace Math
 			return m_Vector;
 		}
 
+		__m128 getM_Vector(void) {
+			return m_Vector;
+		}
+
 		/// <summary>
 		///   Returns the x value of the vector.
 		/// </summary>
@@ -786,7 +790,7 @@ namespace Math
 			*this = *this * a;
 			return *this;
 		}
-
+		
 		/// <summary>
 		///   Calculates the magnitude of this quaternion.
 		/// </summary>
@@ -826,6 +830,9 @@ namespace Math
 			return XVector3();*/
 		}
 
+		void normalize();
+
+		
 
 	public:
 
