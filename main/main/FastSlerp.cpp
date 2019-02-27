@@ -19,16 +19,16 @@ XQuaternion FastSlerp::SlerpFast(XQuaternion v0, XQuaternion v1, double t)
 		dot = -dot;
 	}
 
-	//const double DOT_THRESHOLD = 0.9995;
-	//if (dot > DOT_THRESHOLD) {
-	//	// If the inputs are too close for comfort, linearly interpolate
-	//	// and normalize the result.
+	const double DOT_THRESHOLD = 0.9995;
+	if (dot > DOT_THRESHOLD) {
+		// If the inputs are too close for comfort, linearly interpolate
+		// and normalize the result.
 
-	//	//_mm_add_ps(v0 , _mm_mul_ps(_mm_set1_ps(t), _mm_sub_ps(v1, v0)));
-	//	XQuaternion result = _mm_add_ps(v0, _mm_mul_ps(_mm_set1_ps(t), _mm_sub_ps(v1, v0)));
-	//	result.normalize();
-	//	return result;
-	//}
+		//_mm_add_ps(v0 , _mm_mul_ps(_mm_set1_ps(t), _mm_sub_ps(v1, v0)));
+		XQuaternion result = _mm_add_ps(v0, _mm_mul_ps(_mm_set1_ps(t), _mm_sub_ps(v1, v0)));
+		result.normalize();
+		return result;
+	}
 
 	// Since dot is in range [0, DOT_THRESHOLD], acos is safe
 	double theta_0 = acos(dot);        // theta_0 = angle between input vectors

@@ -164,9 +164,11 @@ void Math::XQuaternion::normalize()
 {
 	/*__m128 pow = _mm_mul_ps(m_Vector, m_Vector);
 	__m128 sqrt = _mm_sqrt_ps(pow);*/
-	f32 sqrt = Magnitude();
+	/*f32 sqrt = Magnitude();
 
-	m_Vector = _mm_div_ps(m_Vector, _mm_set1_ps(sqrt));
+	m_Vector = _mm_div_ps(m_Vector, _mm_set1_ps(sqrt));*/
+
+	m_Vector = _mm_mul_ps(m_Vector, _mm_rsqrt_ps(_mm_dp_ps(m_Vector, m_Vector, 0x7F)));
 }
 
 

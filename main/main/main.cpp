@@ -8,7 +8,7 @@
 #include <DirectXMath.h>
 #include <time.h>
 
-#define TESTCOUNT 100000;
+#define TESTCOUNT 1000000;
 
 
 
@@ -24,30 +24,42 @@ int main()
 	Quaternion v2 = { 300, 300, 300 ,300 };
 	XQuaternion v3 = { 500, 500, 500 ,500 };
 	XQuaternion v4 = { 300, 300, 300 ,300 };
+	Quaternion v7 = { -500, 500, 500 ,500 };
+	Quaternion v8 = { 300, 300, -300 ,300 };
+	XQuaternion v9 = { -500, 500, 500 ,500 };
+	XQuaternion v10 = { 300, 300, -300 ,300 };
 	DirectX::XMVECTOR v5 = DirectX::XMVectorSet(500, 500, 500, 500);
 	DirectX::XMVECTOR v6 = DirectX::XMVectorSet(300, 300, 300, 300);
 	SlowSlerp slow;
 	FastSlerp fast;
-	clock_t start3, end3;
+	clock_t start3, end3, start4, end4, start5,end5;
 	auto start = std::chrono::high_resolution_clock::now();
 	for (int i = 0; i < length; i++) { DirectX::XMVECTOR  test0 = DirectX::XMQuaternionSlerp(v5, v6, 5); }
 	auto finish = std::chrono::high_resolution_clock::now();
+	
 	start3 = clock();
 	for (int i = 0; i < length; i++) { test1 = slow.SlerpSlow(v1, v2, 5); }
 	
 	
 	end3 = clock();
+	start4 = clock();
+	for (int i = 0; i < length; i++) { test1 = slow.SlerpSlow(v7, v8, 5); }
+	end4 = clock();
 
 	std::chrono::duration<double> elapsed = finish - start;
-	std::cout << "Elapsed time: " << elapsed.count() << " s\n";
-	std::cout << "Time: " << (double)(end3 - start3) / CLOCKS_PER_SEC << "s\n";
+	std::cout << "DirectX: " << elapsed.count() << " s\n";
+	std::cout << "Slow with linear interpolation " << (double)(end3 - start3) / CLOCKS_PER_SEC << "s\n";
+	std::cout << "Slow normal slerp " << (double)(end4 - start4) / CLOCKS_PER_SEC << "s\n";
 
 	auto start1 = std::chrono::high_resolution_clock::now();
 	for (int i = 0; i < length; i++) {  test2 = fast.SlerpFast(v3, v4, 5); }
 	auto finish1 = std::chrono::high_resolution_clock::now();
+	start5 = clock();
+	for (int i = 0; i < length; i++) { test2 = fast.SlerpFast(v9, v10, 5); }
+	end5 = clock();
 	std::chrono::duration<double> elapsed1 = finish1 - start1;
-	std::cout << "Elapsed time: " << elapsed1.count() << " s\n";
-
+	std::cout << "Fast with linear interpolation: " << elapsed1.count() << " s\n";
+	std::cout << "Fast normal slerp " << (double)(end5 - start5) / CLOCKS_PER_SEC << "s\n";
 
 }
 

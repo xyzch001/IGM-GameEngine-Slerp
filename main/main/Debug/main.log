@@ -1,4 +1,5 @@
 ﻿  main.cpp
-z:\igmprofile\desktop\slerptest\main\main\math.h(646): warning C4838: conversion from 'double' to 'f32' requires a narrowing conversion
-z:\igmprofile\desktop\slerptest\main\main\math.h(646): warning C4244: 'initializing': conversion from 'double' to 'f32', possible loss of data
-  main.vcxproj -> Z:\IGMProfile\Desktop\SlerpTest\main\Debug\main.exe
+e:\learning\weihaoyan\gameengine\igm-gameengine-slerp\main\main\math.h(646): warning C4838: 从“double”转换到“f32”需要收缩转换
+e:\learning\weihaoyan\gameengine\igm-gameengine-slerp\main\main\math.h(646): warning C4244: “初始化”: 从“double”转换到“f32”，可能丢失数据
+e:\learning\weihaoyan\gameengine\igm-gameengine-slerp\main\main\mathx.h(810): warning C4244: “=”: 从“int”转换到“f32”，可能丢失数据
+  main.vcxproj -> E:\learning\WeihaoYan\GameEngine\IGM-GameEngine-Slerp\main\Debug\main.exe

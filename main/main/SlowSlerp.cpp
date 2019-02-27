@@ -25,19 +25,19 @@ Quaternion SlowSlerp::SlerpSlow(Quaternion v0, Quaternion v1, double t)
 		dot = -dot;
 	}
 
-	//const double DOT_THRESHOLD = 0.9995;
-	//if (dot > DOT_THRESHOLD) {
-	//	// If the inputs are too close for comfort, linearly interpolate
-	//	// and normalize the result.
+	const double DOT_THRESHOLD = 0.9995;
+	if (dot > DOT_THRESHOLD) {
+		// If the inputs are too close for comfort, linearly interpolate
+		// and normalize the result.
 
-	//	Quaternion result = v0 + (v1 - v0) * t;
-	//	result.normalize();
+		Quaternion result = v0 + (v1 - v0) * t;
+		result.normalize();
 
 
-	//	std::cout << result.x << std::endl;
+		//std::cout << result.x << std::endl;
 
-	//	return result;
-	//}
+		return result;
+	}
 
 	// Since dot is in range [0, DOT_THRESHOLD], acos is safe
 	double theta_0 = acos(dot);        // theta_0 = angle between input vectors

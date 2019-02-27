@@ -15,6 +15,7 @@
 #pragma once
 #include "DataTypes.h"
 #include <intrin.h>
+#include <iostream>
 //#include "pch.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -801,7 +802,20 @@ namespace Math
 			__m128 sq = _mm_mul_ps(m_Vector, m_Vector);
 			t = _mm_add_ps(sq, _mm_shuffle_ps(sq, sq, _MM_SHUFFLE(3, 1, 0, 2)));
 			t = _mm_add_ps(t, _mm_shuffle_ps(sq, sq, _MM_SHUFFLE(3, 0, 2, 1)));
-			return XScalar(_mm_sqrt_ps(t));
+			//return XScalar(_mm_sqrt_ps(t));
+			f32 a;
+			/*f32 b;
+			f32 c;
+			f32 d;*/
+			a = _mm_extract_ps(t,0);
+		/*	b = _mm_extract_ps(t, 1);
+			c = _mm_extract_ps(t, 2);
+			d = _mm_extract_ps(t, 3);*/
+			/*std::cout << a << std::endl;
+			std::cout << b << std::endl;
+			std::cout << c << std::endl;
+			std::cout << d << std::endl;*/
+			return a;
 		}
 
 		/// <summary>
